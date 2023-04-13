@@ -1,0 +1,22 @@
+{% extends "aplicacao/layout.html" %}
+
+{% block body %}
+    <h1>aplicacao {{ aplicacao.id }}</h1>
+    <ul>
+        <li>compra: {{ aplicacao.compra }}</li>
+        <li>preco: {{ aplicacao.preco }} </li>
+    </ul>
+    <a href="{% url 'index' %}">All aplicacao</a>
+{% endblock %}
+
+
+{% extends "aplicacao/layout.html" %}
+
+{% block body %}
+    <h1>aplicacao:</h1>
+    <ul>
+        {% for aplicacao in aplicacao %}
+            <li><a href="{% url 'aplicacao' aplicacao.id %}">aplicacao {{ aplicacao.id }}</a>: {{ aplicacao.compra }} to {{ aplicacao.preco }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
