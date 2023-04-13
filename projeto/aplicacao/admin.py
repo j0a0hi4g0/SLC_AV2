@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import aplicacao, lista
 
-# Register your models here.
+admin.site.register(aplicacao)
+admin.site.register(lista)
