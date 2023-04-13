@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import aplicacao, lista
+from .models import  Aplicacao, Lista, ListaCompras
 
-admin.site.register(aplicacao)
-admin.site.register(lista)
+
+admin.site.register(Lista)
+admin.site.register(Aplicacao)
+admin.site.register(ListaCompras)
+
