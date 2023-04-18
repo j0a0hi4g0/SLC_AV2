@@ -3,18 +3,16 @@
 {% block body %}
 
 
-<h1>itens comprados{{ aplicacao.id }}</h1>
+<h1>ID do item: {{ aplicacao.id }}</h1>
 <ul>
-    <li>compra: {{ aplicacao.compra }}</li>
-    <li>preco: {{ aplicacao.preco }} </li>
-    #######
+    <li>produto: {{ aplicacao.compra }}</li>
+    <li>preço: {{ aplicacao.preco }} </li>
+ 
 </ul>
+
+
+
 <a href="{% url 'index' %}">voltar para a pagina inicial</a>
-<ul>
-    {% for aplicacao in aplicacao %}
-        <li><a href="{% url 'aplicacao' aplicacao.id %}">aplicacao {{ aplicacao.id }}</a>: {{ aplicacao.compra }} to {{ aplicacao.preco }}</li>
-    {% endfor %}
-</ul>
 
 {% endblock %}
 
