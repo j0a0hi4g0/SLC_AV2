@@ -1,10 +1,9 @@
-{% extends "aplicacao/layout.html" %}
-
 {% block body %}
     <h1>lista de compras:</h1>
     <ul>
         {% for aplicacao in aplicacao %}
-            <li>aplicacao {{ aplicacao.id }}: {{ aplicacao.compra }} R$ {{ aplicacao.preco}}</li>
+           <li><a href="{% url 'aplicacao' aplicacao.id %}">Aplicacao {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }}</li>
         {% endfor %}
     </ul>
+
 {% endblock %}

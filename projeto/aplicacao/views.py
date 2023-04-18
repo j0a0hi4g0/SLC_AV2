@@ -8,8 +8,13 @@ def index(request):
         "aplicacao": Aplicacao.objects.all()
     })
 
+
 def aplicacao(request, aplicacao_id):
-    aplicacao = aplicacao.objects.get(id=aplicacao_id)
+    compra = Aplicacao.objects.get(id=aplicacao_id)
+  
     return render(request, "aplicacao/pag.html", {
-        "aplicacao": Aplicacao
+        "Aplicacao": compra,
+        "Aplicacao": aplicacao
+
+      
     })
