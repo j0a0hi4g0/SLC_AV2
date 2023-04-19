@@ -2,8 +2,9 @@
     <h1>lista de compras:</h1>
     <ul>
         {% for aplicacao in aplicacao %}
-           <li><a href="{% url 'aplicacao' aplicacao.id %}">produto {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }}</li>
+           <li><a href="{% url 'aplicacao' aplicacao.id %}">produto {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }} Lista {{ aplicacao.lista }}</li>
         {% endfor %}
     </ul>
-
+        <h4>Soma dos preços dos produtos na lista {{ app.lista }}</h4>
+        <p>Preço total: R$ {{ preco_total }}</p>
 {% endblock %}

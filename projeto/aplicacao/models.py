@@ -10,7 +10,7 @@ class Lista(models.Model):
 class Aplicacao(models.Model):
     compra = models.CharField(max_length=64)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
-    
+    lista = models.ForeignKey(Lista, on_delete=models.CASCADE)
+
     def __str__(self):
         return f"ID:{self.id} Preço:{self.preco}  Produto:{self.compra}"
-
