@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Tela Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        
+        form {
+            width: 300px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #ccc;
+        }
+
+        input[type="text"], input[type="password"] {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            margin: 20px 0 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #071436;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #071436;
+        }
+    </style>
 </head>
 <body>
     <form action="{% url 'logar' %}" method="POST">
         {% csrf_token %}
-        <input type="text" placeholder="Usuário" name="nome"><br>
-        <input type="password" placeholder="Senha" name="senha"><br>
+        <input type="text" placeholder="Usuário" name="nome">
+        <input type="password" placeholder="Senha" name="senha">
         <input type="submit" value="Login">
-
     </form>
 </body>
 </html>
