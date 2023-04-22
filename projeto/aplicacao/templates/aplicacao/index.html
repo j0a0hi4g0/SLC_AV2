@@ -1,29 +1,78 @@
-{% block body %}
-
-
-<br>
-<ul>
-    <button>
-        <a href="{% url 'inicio' %}">login/cadastro de usuario</a>
-    </button>
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
     <br>
-    <button>
-        <a href="http://127.0.0.1:8000/admin/">admin</a>
-    </button>
+    <ul>
+        <button>
+            <a href="{% url 'inicio' %}">login - cadastro de usuario</a>
+        </button>
+        <br>
+        <button>
+            <a href="http://127.0.0.1:8000/admin/">admin</a>
+        </button>
 
-    <br>
-    <h1>lista de compras:</h1>
-<ul>
-    {% for aplicacao in aplicacao %}
-       <li><a href="{% url 'aplicacao' aplicacao.id %}">produto {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }} Lista {{ aplicacao.lista }}</li>
-    {% endfor %}
-</ul>
-<ul>
-    {% for aplicacao in aplicacao %}
-    <h4>valor dos produtos da lista {{ aplicacao.lista }}</h4>
-    <p>Valor total: R$ {{ aplicacao.preco }}</p>
-    {% endfor %}
-</ul>
+        <br>
+        <h1>lista de compras:</h1>
+        <ul>
+            {% for aplicacao in aplicacao %}
+               <li><a href="{% url 'aplicacao' aplicacao.id %}">produto {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }} Lista {{ aplicacao.lista }}</li>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for aplicacao in aplicacao %}
+            <h4>valor dos produtos da lista {{ aplicacao.lista }}</h4>
+            <p>Valor total: R$ {{ aplicacao.preco }}</p>
+            {% endfor %}
+        </ul>
+    </ul>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
 
+button {
+    background-color: #071436; 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    margin: 8px; 
+}
 
-{% endblock %}
+button:hover {
+    background-color: #0d0e0d; 
+}
+
+h1 {
+    font-size: 36px; 
+    font-weight: bold; 
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+li {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid #000000; 
+    border-radius: 4px; 
+}
+
+a {
+    color: #835959; 
+    text-decoration: none; 
+}
+
+a:hover {
+    color: #0413ec; 
+}
+
+</style>
+</body>
+</html>
