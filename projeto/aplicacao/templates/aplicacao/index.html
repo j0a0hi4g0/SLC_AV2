@@ -13,17 +13,17 @@
 
     <br>
     <h1>lista de compras:</h1>
-    <ul>
-        {% for aplicacao in aplicacao %}
-           <li><a href="{% url 'aplicacao' aplicacao.id %}">produto {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }} Lista {{ aplicacao.lista }}</li>
-        {% endfor %}
-    </ul>
-    <ul>
-        {% for aplicacao in aplicacao %}
-        <h4>valor dos produtos da lista {{ aplicacao.lista }}</h4>
-        <p>Valor total: R$ {{ preco_total }}</p>
-    </ul>
+<ul>
+    {% for aplicacao in aplicacao %}
+       <li><a href="{% url 'aplicacao' aplicacao.id %}">produto {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }} Lista {{ aplicacao.lista }}</li>
     {% endfor %}
+</ul>
+<ul>
+    {% for aplicacao in aplicacao %}
+    <h4>valor dos produtos da lista {{ aplicacao.lista }}</h4>
+    <p>Valor total: R$ {{ aplicacao.preco }}</p>
+    {% endfor %}
+</ul>
 
 
 {% endblock %}

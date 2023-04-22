@@ -10,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 def inicio(request):
     return render(request, 'aplicacao/inicio.html')
 
+
+
 def index(request):
     return render(request, "aplicacao/index.html", {
         "aplicacao": Aplicacao.objects.all()
