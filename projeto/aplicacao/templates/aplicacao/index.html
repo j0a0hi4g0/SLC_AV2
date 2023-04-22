@@ -1,10 +1,29 @@
 {% block body %}
+
+
+<br>
+<ul>
+    <button>
+        <a href="{% url 'inicio' %}">login/cadastro de usuario</a>
+    </button>
+    <br>
+    <button>
+        <a href="admin">admin</a>
+    </button>
+
+    <br>
     <h1>lista de compras:</h1>
     <ul>
         {% for aplicacao in aplicacao %}
            <li><a href="{% url 'aplicacao' aplicacao.id %}">produto {{ aplicacao.id }}</a>: {{ aplicacao.compra }} R$ {{ aplicacao.preco }} Lista {{ aplicacao.lista }}</li>
         {% endfor %}
     </ul>
-        <h4>Soma dos preços dos produtos na lista {{ app.lista }}</h4>
-        <p>Preço total: R$ {{ preco_total }}</p>
+    <ul>
+        {% for aplicacao in aplicacao %}
+        <h4>valor dos produtos da lista {{ aplicacao.lista }}</h4>
+        <p>Valor total: R$ {{ preco_total }}</p>
+    </ul>
+    {% endfor %}
+
+
 {% endblock %}
