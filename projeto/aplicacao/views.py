@@ -7,6 +7,22 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
 
+def adicionar_produto(request):
+    if request.method == 'POST':
+        # Extrai os dados do POST
+        nome = request.POST.get('nome')
+        valor = request.POST.get('valor')
+
+        # Salva o produto no banco de dados
+        produto = Aplicacao(nome=nome, valor=valor)
+        produto.save()
+
+        # Retorna uma resposta JSON
+        return JsonResponse({'status': 'ok'})
+    else:
+        # Retorna uma resposta de erro caso o método HTTP não seja POST
+        return JsonResponse({'status': 'error', 'message': 'Método não permitido'})
+
 def inicio(request):
     return render(request, 'aplicacao/inicio.html')
 

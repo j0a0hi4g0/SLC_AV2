@@ -24,9 +24,12 @@
             {% endfor %}
         </ul>
         <ul>
+
+    
             {% for aplicacao in aplicacao %}
-            <h4>valor dos produtos da lista {{ aplicacao.lista }}</h4>
-            <p>Valor total: R$ {{ aplicacao.preco }}</p>
+            
+                <h4>Soma dos preços dos produtos na lista {{ aplicacao.lista }}</h4>
+                <p>Preço Total: R$ {{ aplicacao.lista.total }}</p>
             {% endfor %}
         </ul>
     </ul>
@@ -76,4 +79,45 @@ a:hover {
 
 </style>
 </body>
+
+<h4>adicionar produto:</h4>
+<form id="formulario-produto">
+    <input type="text" name="nome" placeholder="Nome do produto"> <br>
+    <input type="number" step="any" name="valor" placeholder="Valor do produto"> <br>
+    <input type="text" name="lista" placeholder="Lista"><br>
+    <button type="submit">Adicionar produto</button>
+</form>
+
+
+
+<script>
+    // Adiciona um listener no formulário que envia uma requisição POST para a API
+    document.querySelector('#formulario-produto').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Extrai os dados do formulário
+        const formData = new FormData(event.target);
+        const nome = formData.get('nome');
+        const valor = formData.get('valor');
+
+        // Envia a requisição POST para a rota adicionar-produto/
+        fetch('/adicionar-produto/', {
+            method: 'POST',
+            body: formData
+        }).then(function(response) {
+            if (response.ok) {
+                // Se a requisição for bem-sucedida, atualiza a página
+                location.reload();
+            } else {
+                // Caso contrário, exibe uma mensagem de erro
+                alert('Ocorreu um erro ao adicionar o produto');
+            }
+        }).catch(function(error) {
+            // Em caso de erro, exibe uma mensagem de erro
+            alert('Ocorreu um erro ao adicionar o produto');
+        });
+    });
+</script>
+
+
 </html>

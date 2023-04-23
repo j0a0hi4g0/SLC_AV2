@@ -1,0 +1,35 @@
+<form id="formulario-produto">
+    <input type="text" name="nome" placeholder="Nome do produto">
+    <input type="number" name="valor" placeholder="Valor do produto">
+    <button type="submit">Adicionar produto</button>
+</form>
+
+<script>
+    // Adiciona um listener no formulário que envia uma requisição POST para a API
+    document.querySelector('#formulario-produto').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Extrai os dados do formulário
+        const formData = new FormData(event.target);
+        const nome = formData.get('nome');
+        const valor = formData.get('valor');
+
+        // Envia a requisição POST para a rota adicionar-produto/
+        fetch('/adicionar-produto/', {
+            method: 'POST',
+            body: formData
+        }).then(function(response) {
+            if (response.ok) {
+                // Se a requisição for bem-sucedida, atualiza a página
+                location.reload();
+            } else {
+                // Caso contrário, exibe uma mensagem de erro
+                alert('Ocorreu um erro ao adicionar o produto');
+            }
+        }).catch(function(error) {
+            // Em caso de erro, exibe uma mensagem de erro
+            alert('Ocorreu um erro ao adicionar o produto');
+        });
+    });
+</script>
+
